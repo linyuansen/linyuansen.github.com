@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ProjectEuler Problem1 multiples of 3 and 5"
-description: ""
+description: "project euler"
 category: coding
 tags: [lisp, ProjectEuler]
 ---
@@ -31,8 +31,6 @@ tags: [lisp, ProjectEuler]
       nil
       (append (print-a35 a b)
 	     (test (1+ a) b))))
-
-
 
 (defun sort-delete (alist)
   (if (not (null (cadr alist)))	   

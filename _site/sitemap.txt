@@ -1,9 +1,10 @@
 
-http://username.github.com/archive.html
-http://username.github.com/atom.xml
-http://username.github.com/categories.html
-http://username.github.com/index.html
-http://username.github.com/sitemap.txt
-http://username.github.com/tags.html
+http://linyuansen.github.com/archive.html
+http://linyuansen.github.com/atom.xml
+http://linyuansen.github.com/categories.html
+http://linyuansen.github.com/index.html
+http://linyuansen.github.com/sitemap.txt
+http://linyuansen.github.com/tags.html
 
-http://username.github.com/coding/2012/12/14/a-day
+http://linyuansen.github.com/coding/2013/04/14/projecteuler-problem1-multiples-of-3-and-5
+http://linyuansen.github.com/coding/2012/12/14/a-day

@@ -110,84 +110,81 @@
 <ul>
 <li>代码最少的lisp实现</li>
 </ul>
-<div class='highlight'><pre><code class='cl'><span class='lineno'> 1</span> 	<span class='p'>(</span><span class='nb'>defun</span> <span class='nv'>fact1-google</span> <span class='p'>(</span><span class='nb'>min</span> <span class='nv'>mid</span> <span class='nb'>max</span> <span class='nb'>count</span> <span class='nv'>max-count</span><span class='p'>)</span>
-<span class='lineno'> 2</span> 	  <span class='p'>(</span><span class='nb'>case</span> <span class='nv'>max-count</span>
-<span class='lineno'> 3</span> 		<span class='p'>(</span><span class='mi'>0</span> <span class='mi'>1</span><span class='p'>)</span>
-<span class='lineno'> 4</span> 		<span class='p'>(</span><span class='mi'>1</span> <span class='mi'>1</span><span class='p'>)</span>
-<span class='lineno'> 5</span> 		<span class='p'>(</span><span class='mi'>2</span> <span class='mi'>2</span><span class='p'>)</span>
-<span class='lineno'> 6</span> 		<span class='p'>(</span><span class='no'>t</span> <span class='p'>(</span><span class='k'>if</span> <span class='p'>(</span><span class='nb'>&gt;</span> <span class='nb'>count</span> <span class='nv'>max-count</span><span class='p'>)</span>
-<span class='lineno'> 7</span> 		   <span class='nb'>max</span>
-<span class='lineno'> 8</span> 		   <span class='p'>(</span><span class='nv'>fact1-google</span> <span class='nv'>mid</span> <span class='nb'>max</span> <span class='p'>(</span><span class='nb'>+</span> <span class='nb'>min</span> <span class='nv'>mid</span> <span class='nb'>max</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>1+</span> <span class='nb'>count</span><span class='p'>)</span> <span class='nv'>max-count</span><span class='p'>)))))</span>
-<span class='lineno'> 9</span> 
-<span class='lineno'>10</span> 	<span class='p'>(</span><span class='nb'>defun</span> <span class='nv'>fact-google</span> <span class='p'>(</span><span class='nv'>n</span><span class='p'>)</span>
-<span class='lineno'>11</span> 	  <span class='p'>(</span><span class='nv'>fact1-google</span> <span class='mi'>1</span> <span class='mi'>1</span> <span class='mi'>2</span> <span class='mi'>3</span> <span class='nv'>n</span><span class='p'>))</span>
-</code></pre>
-</div>
+<div class='highlight'><pre><code class='cl'>	<span class='p'>(</span><span class='nb'>defun</span> <span class='nv'>fact1-google</span> <span class='p'>(</span><span class='nb'>min</span> <span class='nv'>mid</span> <span class='nb'>max</span> <span class='nb'>count</span> <span class='nv'>max-count</span><span class='p'>)</span>
+	  <span class='p'>(</span><span class='nb'>case</span> <span class='nv'>max-count</span>
+		<span class='p'>(</span><span class='mi'>0</span> <span class='mi'>1</span><span class='p'>)</span>
+		<span class='p'>(</span><span class='mi'>1</span> <span class='mi'>1</span><span class='p'>)</span>
+		<span class='p'>(</span><span class='mi'>2</span> <span class='mi'>2</span><span class='p'>)</span>
+		<span class='p'>(</span><span class='no'>t</span> <span class='p'>(</span><span class='k'>if</span> <span class='p'>(</span><span class='nb'>&gt;</span> <span class='nb'>count</span> <span class='nv'>max-count</span><span class='p'>)</span>
+		   <span class='nb'>max</span>
+		   <span class='p'>(</span><span class='nv'>fact1-google</span> <span class='nv'>mid</span> <span class='nb'>max</span> <span class='p'>(</span><span class='nb'>+</span> <span class='nb'>min</span> <span class='nv'>mid</span> <span class='nb'>max</span><span class='p'>)</span> <span class='p'>(</span><span class='nb'>1+</span> <span class='nb'>count</span><span class='p'>)</span> <span class='nv'>max-count</span><span class='p'>)))))</span>
+
+	<span class='p'>(</span><span class='nb'>defun</span> <span class='nv'>fact-google</span> <span class='p'>(</span><span class='nv'>n</span><span class='p'>)</span>
+	  <span class='p'>(</span><span class='nv'>fact1-google</span> <span class='mi'>1</span> <span class='mi'>1</span> <span class='mi'>2</span> <span class='mi'>3</span> <span class='nv'>n</span><span class='p'>))</span>
+</code></pre></div>
 <ul>
 <li>学习SICP之前的解题1</li>
 </ul>
-<div class='highlight'><pre><code class='java'><span class='lineno'> 1</span> <span class='kd'>public</span> <span class='kd'>class</span> <span class='nc'>Test</span> <span class='o'>{</span>
-<span class='lineno'> 2</span> 	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='n'>iMax</span><span class='o'>;</span><span class='c1'>//T(n-1)  max</span>
-<span class='lineno'> 3</span> 	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='n'>iMid</span><span class='o'>;</span><span class='c1'>//T(n-2)  mid</span>
-<span class='lineno'> 4</span> 	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='n'>iLast</span><span class='o'>;</span><span class='c1'>//T(n-3)  last</span>
-<span class='lineno'> 5</span> 	
-<span class='lineno'> 6</span> 	<span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='nf'>fn</span><span class='o'>(</span><span class='kt'>int</span> <span class='n'>n</span><span class='o'>){</span>
-<span class='lineno'> 7</span> 		<span class='k'>if</span><span class='o'>(</span><span class='n'>n</span> <span class='o'>&lt;</span> <span class='mi'>3</span><span class='o'>){</span>
-<span class='lineno'> 8</span> 			<span class='k'>return</span> <span class='o'>((</span><span class='mi'>0</span><span class='o'>==</span><span class='n'>n</span> <span class='o'>||</span> <span class='mi'>1</span><span class='o'>==</span><span class='n'>n</span><span class='o'>)</span> <span class='o'>?</span> <span class='mi'>1</span> <span class='o'>:</span> <span class='mi'>2</span><span class='o'>);</span>
-<span class='lineno'> 9</span> 		<span class='o'>}</span><span class='k'>else</span><span class='o'>{</span>
-<span class='lineno'>10</span> 			<span class='n'>init</span><span class='o'>();</span>
-<span class='lineno'>11</span> 			<span class='kt'>int</span> <span class='n'>times</span> <span class='o'>=</span> <span class='o'>(</span><span class='kt'>int</span><span class='o'>)</span> <span class='n'>Math</span><span class='o'>.</span><span class='na'>rint</span><span class='o'>(</span><span class='n'>n</span><span class='o'>/</span><span class='mi'>3</span><span class='o'>);</span>
-<span class='lineno'>12</span> 				
-<span class='lineno'>13</span> 			<span class='k'>while</span><span class='o'>(</span><span class='mi'>0</span> <span class='o'>!=</span> <span class='n'>times</span><span class='o'>){</span>
-<span class='lineno'>14</span> 				<span class='c1'>//T(n-3) = T(n-4) + T(n-5) + T(n-6)</span>
-<span class='lineno'>15</span> 				<span class='n'>iLast</span> <span class='o'>=</span> <span class='n'>iMax</span> <span class='o'>+</span> <span class='n'>iMid</span> <span class='o'>+</span> <span class='n'>iLast</span><span class='o'>;</span>
-<span class='lineno'>16</span> 				<span class='c1'>//T(n-2) = T(n-4) + T(n-5) + T(n-3)</span>
-<span class='lineno'>17</span> 				<span class='n'>iMid</span> <span class='o'>=</span> <span class='n'>iMax</span> <span class='o'>+</span> <span class='n'>iMid</span> <span class='o'>+</span> <span class='n'>iLast</span><span class='o'>;</span>
-<span class='lineno'>18</span> 				<span class='c1'>//T(n-1) = T(n-4) + T(n-2) + T(n-3)</span>
-<span class='lineno'>19</span> 				<span class='n'>iMax</span> <span class='o'>=</span> <span class='n'>iMax</span> <span class='o'>+</span> <span class='n'>iMid</span> <span class='o'>+</span> <span class='n'>iLast</span><span class='o'>;</span>
-<span class='lineno'>20</span> 				<span class='n'>times</span><span class='o'>--;</span>
-<span class='lineno'>21</span> 			<span class='o'>}</span>
-<span class='lineno'>22</span> 				
-<span class='lineno'>23</span> 			<span class='kt'>int</span> <span class='n'>result</span> <span class='o'>=</span> <span class='o'>-</span><span class='mi'>1</span><span class='o'>;</span>
-<span class='lineno'>24</span> 			<span class='k'>if</span><span class='o'>(</span><span class='mi'>0</span> <span class='o'>==</span> <span class='n'>n</span> <span class='o'>%</span> <span class='mi'>3</span><span class='o'>)</span> <span class='n'>result</span> <span class='o'>=</span> <span class='n'>iLast</span><span class='o'>;</span>
-<span class='lineno'>25</span> 			<span class='k'>if</span><span class='o'>(</span><span class='mi'>1</span> <span class='o'>==</span> <span class='n'>n</span> <span class='o'>%</span> <span class='mi'>3</span><span class='o'>)</span> <span class='n'>result</span> <span class='o'>=</span> <span class='n'>iMid</span><span class='o'>;</span>
-<span class='lineno'>26</span> 			<span class='k'>if</span><span class='o'>(</span><span class='mi'>2</span> <span class='o'>==</span> <span class='n'>n</span> <span class='o'>%</span> <span class='mi'>3</span><span class='o'>)</span> <span class='n'>result</span> <span class='o'>=</span> <span class='n'>iMax</span><span class='o'>;</span>
-<span class='lineno'>27</span> 			
-<span class='lineno'>28</span> 			<span class='k'>return</span> <span class='n'>result</span><span class='o'>;</span>
-<span class='lineno'>29</span> 		<span class='o'>}</span>
-<span class='lineno'>30</span> 	<span class='o'>}</span>
-<span class='lineno'>31</span>         
-<span class='lineno'>32</span> 	<span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>void</span> <span class='nf'>init</span><span class='o'>(){</span>
-<span class='lineno'>33</span> 		<span class='n'>iMax</span> <span class='o'>=</span> <span class='mi'>2</span><span class='o'>;</span>
-<span class='lineno'>34</span> 		<span class='n'>iMid</span> <span class='o'>=</span> <span class='mi'>1</span><span class='o'>;</span>
-<span class='lineno'>35</span> 		<span class='n'>iLast</span> <span class='o'>=</span> <span class='mi'>1</span><span class='o'>;</span>
-<span class='lineno'>36</span> 	<span class='o'>}</span>
-<span class='lineno'>37</span> 
-<span class='lineno'>38</span> <span class='o'>}</span>
-</code></pre>
-</div>
+<div class='highlight'><pre><code class='java'><span class='kd'>public</span> <span class='kd'>class</span> <span class='nc'>Test</span> <span class='o'>{</span>
+	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='n'>iMax</span><span class='o'>;</span><span class='c1'>//T(n-1)  max</span>
+	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='n'>iMid</span><span class='o'>;</span><span class='c1'>//T(n-2)  mid</span>
+	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='n'>iLast</span><span class='o'>;</span><span class='c1'>//T(n-3)  last</span>
+	
+	<span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='nf'>fn</span><span class='o'>(</span><span class='kt'>int</span> <span class='n'>n</span><span class='o'>){</span>
+		<span class='k'>if</span><span class='o'>(</span><span class='n'>n</span> <span class='o'>&lt;</span> <span class='mi'>3</span><span class='o'>){</span>
+			<span class='k'>return</span> <span class='o'>((</span><span class='mi'>0</span><span class='o'>==</span><span class='n'>n</span> <span class='o'>||</span> <span class='mi'>1</span><span class='o'>==</span><span class='n'>n</span><span class='o'>)</span> <span class='o'>?</span> <span class='mi'>1</span> <span class='o'>:</span> <span class='mi'>2</span><span class='o'>);</span>
+		<span class='o'>}</span><span class='k'>else</span><span class='o'>{</span>
+			<span class='n'>init</span><span class='o'>();</span>
+			<span class='kt'>int</span> <span class='n'>times</span> <span class='o'>=</span> <span class='o'>(</span><span class='kt'>int</span><span class='o'>)</span> <span class='n'>Math</span><span class='o'>.</span><span class='na'>rint</span><span class='o'>(</span><span class='n'>n</span><span class='o'>/</span><span class='mi'>3</span><span class='o'>);</span>
+				
+			<span class='k'>while</span><span class='o'>(</span><span class='mi'>0</span> <span class='o'>!=</span> <span class='n'>times</span><span class='o'>){</span>
+				<span class='c1'>//T(n-3) = T(n-4) + T(n-5) + T(n-6)</span>
+				<span class='n'>iLast</span> <span class='o'>=</span> <span class='n'>iMax</span> <span class='o'>+</span> <span class='n'>iMid</span> <span class='o'>+</span> <span class='n'>iLast</span><span class='o'>;</span>
+				<span class='c1'>//T(n-2) = T(n-4) + T(n-5) + T(n-3)</span>
+				<span class='n'>iMid</span> <span class='o'>=</span> <span class='n'>iMax</span> <span class='o'>+</span> <span class='n'>iMid</span> <span class='o'>+</span> <span class='n'>iLast</span><span class='o'>;</span>
+				<span class='c1'>//T(n-1) = T(n-4) + T(n-2) + T(n-3)</span>
+				<span class='n'>iMax</span> <span class='o'>=</span> <span class='n'>iMax</span> <span class='o'>+</span> <span class='n'>iMid</span> <span class='o'>+</span> <span class='n'>iLast</span><span class='o'>;</span>
+				<span class='n'>times</span><span class='o'>--;</span>
+			<span class='o'>}</span>
+				
+			<span class='kt'>int</span> <span class='n'>result</span> <span class='o'>=</span> <span class='o'>-</span><span class='mi'>1</span><span class='o'>;</span>
+			<span class='k'>if</span><span class='o'>(</span><span class='mi'>0</span> <span class='o'>==</span> <span class='n'>n</span> <span class='o'>%</span> <span class='mi'>3</span><span class='o'>)</span> <span class='n'>result</span> <span class='o'>=</span> <span class='n'>iLast</span><span class='o'>;</span>
+			<span class='k'>if</span><span class='o'>(</span><span class='mi'>1</span> <span class='o'>==</span> <span class='n'>n</span> <span class='o'>%</span> <span class='mi'>3</span><span class='o'>)</span> <span class='n'>result</span> <span class='o'>=</span> <span class='n'>iMid</span><span class='o'>;</span>
+			<span class='k'>if</span><span class='o'>(</span><span class='mi'>2</span> <span class='o'>==</span> <span class='n'>n</span> <span class='o'>%</span> <span class='mi'>3</span><span class='o'>)</span> <span class='n'>result</span> <span class='o'>=</span> <span class='n'>iMax</span><span class='o'>;</span>
+			
+			<span class='k'>return</span> <span class='n'>result</span><span class='o'>;</span>
+		<span class='o'>}</span>
+	<span class='o'>}</span>
+        
+	<span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>void</span> <span class='nf'>init</span><span class='o'>(){</span>
+		<span class='n'>iMax</span> <span class='o'>=</span> <span class='mi'>2</span><span class='o'>;</span>
+		<span class='n'>iMid</span> <span class='o'>=</span> <span class='mi'>1</span><span class='o'>;</span>
+		<span class='n'>iLast</span> <span class='o'>=</span> <span class='mi'>1</span><span class='o'>;</span>
+	<span class='o'>}</span>
+
+<span class='o'>}</span>
+</code></pre></div>
 <ul>
 <li>学习SICP之后</li>
 </ul>
-<div class='highlight'><pre><code class='java'><span class='lineno'> 1</span> 	<span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='nf'>fact_google</span><span class='o'>(</span><span class='kt'>int</span> <span class='n'>n</span><span class='o'>){</span>
-<span class='lineno'> 2</span> 			<span class='k'>return</span> <span class='nf'>fact1_google</span><span class='o'>(</span><span class='mi'>1</span><span class='o'>,</span> <span class='mi'>1</span><span class='o'>,</span> <span class='mi'>2</span><span class='o'>,</span> <span class='mi'>3</span><span class='o'>,</span> <span class='n'>n</span><span class='o'>);</span>
-<span class='lineno'> 3</span> 	<span class='o'>}</span>
-<span class='lineno'> 4</span> 	
-<span class='lineno'> 5</span> 	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='nf'>fact1_google</span><span class='o'>(</span><span class='kt'>int</span> <span class='n'>min</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>mid</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>max</span><span class='o'>,</span>
-<span class='lineno'> 6</span> <span class='kt'>int</span> <span class='n'>count</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>maxCount</span><span class='o'>)</span>
-<span class='lineno'> 7</span> 	<span class='o'>{</span>
-<span class='lineno'> 8</span> 		<span class='k'>if</span><span class='o'>(</span><span class='mi'>1</span> <span class='o'>==</span> <span class='n'>maxCount</span> <span class='o'>||</span> <span class='mi'>0</span> <span class='o'>==</span> <span class='n'>maxCount</span><span class='o'>){</span>
-<span class='lineno'> 9</span> 			<span class='k'>return</span> <span class='mi'>1</span><span class='o'>;</span>
-<span class='lineno'>10</span> 		<span class='o'>}</span>
-<span class='lineno'>11</span> 		<span class='k'>if</span><span class='o'>(</span><span class='mi'>2</span> <span class='o'>==</span> <span class='n'>maxCount</span><span class='o'>){</span>
-<span class='lineno'>12</span> 			<span class='k'>return</span> <span class='mi'>2</span><span class='o'>;</span>
-<span class='lineno'>13</span> 		<span class='o'>}</span>
-<span class='lineno'>14</span> 			
-<span class='lineno'>15</span> 		<span class='k'>if</span><span class='o'>(</span><span class='n'>count</span> <span class='o'>&gt;</span> <span class='n'>maxCount</span><span class='o'>)</span> <span class='k'>return</span> <span class='n'>max</span><span class='o'>;</span>
-<span class='lineno'>16</span> 		<span class='k'>else</span> <span class='k'>return</span> <span class='nf'>fact1_google</span><span class='o'>(</span><span class='n'>mid</span><span class='o'>,</span> <span class='n'>max</span><span class='o'>,</span> <span class='n'>min</span><span class='o'>+</span><span class='n'>mid</span><span class='o'>+</span><span class='n'>max</span><span class='o'>,</span>	<span class='o'>++</span><span class='n'>count</span><span class='o'>,</span> <span class='n'>maxCount</span><span class='o'>);</span>
-<span class='lineno'>17</span> 	<span class='o'>}</span>
-</code></pre>
-</div>
+<div class='highlight'><pre><code class='java'>	<span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='nf'>fact_google</span><span class='o'>(</span><span class='kt'>int</span> <span class='n'>n</span><span class='o'>){</span>
+			<span class='k'>return</span> <span class='nf'>fact1_google</span><span class='o'>(</span><span class='mi'>1</span><span class='o'>,</span> <span class='mi'>1</span><span class='o'>,</span> <span class='mi'>2</span><span class='o'>,</span> <span class='mi'>3</span><span class='o'>,</span> <span class='n'>n</span><span class='o'>);</span>
+	<span class='o'>}</span>
+	
+	<span class='kd'>private</span> <span class='kd'>static</span> <span class='kt'>int</span> <span class='nf'>fact1_google</span><span class='o'>(</span><span class='kt'>int</span> <span class='n'>min</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>mid</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>max</span><span class='o'>,</span>
+<span class='kt'>int</span> <span class='n'>count</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>maxCount</span><span class='o'>)</span>
+	<span class='o'>{</span>
+		<span class='k'>if</span><span class='o'>(</span><span class='mi'>1</span> <span class='o'>==</span> <span class='n'>maxCount</span> <span class='o'>||</span> <span class='mi'>0</span> <span class='o'>==</span> <span class='n'>maxCount</span><span class='o'>){</span>
+			<span class='k'>return</span> <span class='mi'>1</span><span class='o'>;</span>
+		<span class='o'>}</span>
+		<span class='k'>if</span><span class='o'>(</span><span class='mi'>2</span> <span class='o'>==</span> <span class='n'>maxCount</span><span class='o'>){</span>
+			<span class='k'>return</span> <span class='mi'>2</span><span class='o'>;</span>
+		<span class='o'>}</span>
+			
+		<span class='k'>if</span><span class='o'>(</span><span class='n'>count</span> <span class='o'>&gt;</span> <span class='n'>maxCount</span><span class='o'>)</span> <span class='k'>return</span> <span class='n'>max</span><span class='o'>;</span>
+		<span class='k'>else</span> <span class='k'>return</span> <span class='nf'>fact1_google</span><span class='o'>(</span><span class='n'>mid</span><span class='o'>,</span> <span class='n'>max</span><span class='o'>,</span> <span class='n'>min</span><span class='o'>+</span><span class='n'>mid</span><span class='o'>+</span><span class='n'>max</span><span class='o'>,</span>	<span class='o'>++</span><span class='n'>count</span><span class='o'>,</span> <span class='n'>maxCount</span><span class='o'>);</span>
+	<span class='o'>}</span>
+</code></pre></div>
     <hr>
     <div class="pagination">
       <ul>
@@ -196,7 +193,7 @@
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/coding/2013/04/14/projecteuler-problem1-multiples-of-3-and-5" title="ProjectEuler Problem1 multiples of 3 and 5">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -237,7 +234,7 @@
 
   
      
-    	<li><a href="/tags.html#lisp-ref">lisp <span>1</span></a></li>
+    	<li><a href="/tags.html#lisp-ref">lisp <span>2</span></a></li>
      
     	<li><a href="/tags.html#java-ref">java <span>1</span></a></li>
     

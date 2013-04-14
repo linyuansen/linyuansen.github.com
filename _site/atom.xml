@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>forestlin's blog</title>
- <link href="http://username.github.com/atom.xml" rel="self"/>
- <link href="http://username.github.com"/>
- <updated>2012-12-16T15:22:56+08:00</updated>
- <id>http://username.github.com</id>
+ <link href="http://linyuansen.github.com/atom.xml" rel="self"/>
+ <link href="http://linyuansen.github.com"/>
+ <updated>2013-04-14T22:12:08+08:00</updated>
+ <id>http://linyuansen.github.com</id>
  <author>
    <name>Name Lastname</name>
    <email>blah@email.test</email>
@@ -13,10 +13,71 @@
 
  
  <entry>
+   <title>ProjectEuler Problem1 multiples of 3 and 5</title>
+   <link href="http://linyuansen.github.com/coding/2013/04/14/projecteuler-problem1-multiples-of-3-and-5"/>
+   <updated>2013-04-14T00:00:00+08:00</updated>
+   <id>http://linyuansen.github.com/coding/2013/04/14/projecteuler-problem1-multiples-of-3-and-5</id>
+   <content type="html">&lt;ul&gt;
+&lt;li&gt;Multiples of 3 and 5 &amp;#8211;Problem 1 &amp;#8212;If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;#8212;Find the sum of all the multiples of 3 or 5 below 1000.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='cl'&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;2-&amp;gt;1list&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+  &lt;span class='c1'&gt;;(mapcan (lambda(n)(if t n)) alist))&lt;/span&gt;
+  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;not&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;null&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+      &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;append&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;car&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;2-&amp;gt;1list&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;cdr&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)))))&lt;/span&gt;
+
+&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;print-a35&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;a&lt;/span&gt; &lt;span class='nv'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='p'&gt;((&lt;/span&gt;&lt;span class='nv'&gt;n1&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;*&lt;/span&gt; &lt;span class='nv'&gt;a&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+	&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;n2&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;*&lt;/span&gt; &lt;span class='nv'&gt;a&lt;/span&gt; &lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;)))&lt;/span&gt;
+    &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;&amp;lt;&lt;/span&gt; &lt;span class='nv'&gt;n2&lt;/span&gt; &lt;span class='nv'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+	&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;list&lt;/span&gt; &lt;span class='nv'&gt;n1&lt;/span&gt; &lt;span class='nv'&gt;n2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+	&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;&amp;lt;&lt;/span&gt; &lt;span class='nv'&gt;n1&lt;/span&gt; &lt;span class='nv'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;list&lt;/span&gt; &lt;span class='nv'&gt;n1&lt;/span&gt;&lt;span class='p'&gt;)))))&lt;/span&gt;
+
+&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;test&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;a&lt;/span&gt; &lt;span class='nv'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;&amp;gt;&lt;/span&gt; &lt;span class='nv'&gt;a&lt;/span&gt; &lt;span class='nv'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+      &lt;span class='no'&gt;nil&lt;/span&gt;
+      &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;append&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;print-a35&lt;/span&gt; &lt;span class='nv'&gt;a&lt;/span&gt; &lt;span class='nv'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+	     &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;test&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;1+&lt;/span&gt; &lt;span class='nv'&gt;a&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='nv'&gt;b&lt;/span&gt;&lt;span class='p'&gt;))))&lt;/span&gt;
+
+&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;sort-delete&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;not&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;null&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;cadr&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)))&lt;/span&gt;	   
+      &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='p'&gt;((&lt;/span&gt;&lt;span class='nv'&gt;point-b&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;car&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+	    &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;point-a&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;cadr&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)))&lt;/span&gt;
+        &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;append&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;=&lt;/span&gt; &lt;span class='nv'&gt;point-a&lt;/span&gt; &lt;span class='nv'&gt;point-b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='no'&gt;nil&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;list&lt;/span&gt; &lt;span class='nv'&gt;point-a&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;sort-delete&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;cdr&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;))))))&lt;/span&gt;
+
+&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;sum-list&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;null&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+      &lt;span class='mi'&gt;0&lt;/span&gt;
+      &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;+&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;car&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+	 &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;sum-list&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;cdr&lt;/span&gt; &lt;span class='nv'&gt;alist&lt;/span&gt;&lt;span class='p'&gt;)))))&lt;/span&gt;
+
+&lt;span class='c1'&gt;;a*3 a*5 1~1000&lt;/span&gt;
+&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;test-end&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='p'&gt;((&lt;/span&gt;&lt;span class='nv'&gt;alist1&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;test&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='mi'&gt;1000&lt;/span&gt;&lt;span class='p'&gt;)))&lt;/span&gt;&lt;span class='c1'&gt;;a*3 a*5&lt;/span&gt;
+    &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;setq&lt;/span&gt; &lt;span class='nv'&gt;alist1&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;sort&lt;/span&gt; &lt;span class='nv'&gt;alist1&lt;/span&gt; &lt;span class='nf'&gt;#&amp;#39;&lt;/span&gt;&lt;span class='nb'&gt;&amp;lt;&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;&lt;span class='c1'&gt;;sort &amp;lt;&lt;/span&gt;
+    &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;setq&lt;/span&gt; &lt;span class='nv'&gt;alist1&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;cons&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;car&lt;/span&gt; &lt;span class='nv'&gt;alist1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='c1'&gt;;delete repeat&lt;/span&gt;
+		       &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;sort-delete&lt;/span&gt; &lt;span class='nv'&gt;alist1&lt;/span&gt;&lt;span class='p'&gt;)))&lt;/span&gt;
+    &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;sum-list&lt;/span&gt; &lt;span class='nv'&gt;alist1&lt;/span&gt;&lt;span class='p'&gt;)))&lt;/span&gt;
+
+&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;test-answer&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='p'&gt;((&lt;/span&gt;&lt;span class='nv'&gt;sum&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;	
+    &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;loop&lt;/span&gt; &lt;span class='nv'&gt;for&lt;/span&gt; &lt;span class='nv'&gt;i&lt;/span&gt; &lt;span class='nv'&gt;from&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='nv'&gt;to&lt;/span&gt; &lt;span class='mi'&gt;999&lt;/span&gt;
+	 &lt;span class='nb'&gt;do&lt;/span&gt;
+	  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;or&lt;/span&gt;
+	      &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;mod&lt;/span&gt; &lt;span class='nv'&gt;i&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+	      &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;mod&lt;/span&gt; &lt;span class='nv'&gt;i&lt;/span&gt; &lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;)))&lt;/span&gt;
+	     &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;setq&lt;/span&gt; &lt;span class='nv'&gt;sum&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;+&lt;/span&gt; &lt;span class='nv'&gt;sum&lt;/span&gt; &lt;span class='nv'&gt;i&lt;/span&gt;&lt;span class='p'&gt;))))&lt;/span&gt;
+    &lt;span class='nv'&gt;sum&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>函数式编程的例子</title>
-   <link href="http://username.github.com/coding/2012/12/14/a-day"/>
+   <link href="http://linyuansen.github.com/coding/2012/12/14/a-day"/>
    <updated>2012-12-14T00:00:00+08:00</updated>
-   <id>http://username.github.com/coding/2012/12/14/a-day</id>
+   <id>http://linyuansen.github.com/coding/2012/12/14/a-day</id>
    <content type="html">&lt;p&gt;google题目&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -34,84 +95,81 @@
 &lt;ul&gt;
 &lt;li&gt;代码最少的lisp实现&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='cl'&gt;&lt;span class='lineno'&gt; 1&lt;/span&gt; 	&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;fact1-google&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;min&lt;/span&gt; &lt;span class='nv'&gt;mid&lt;/span&gt; &lt;span class='nb'&gt;max&lt;/span&gt; &lt;span class='nb'&gt;count&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-&lt;span class='lineno'&gt; 2&lt;/span&gt; 	  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;case&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;
-&lt;span class='lineno'&gt; 3&lt;/span&gt; 		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-&lt;span class='lineno'&gt; 4&lt;/span&gt; 		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-&lt;span class='lineno'&gt; 5&lt;/span&gt; 		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-&lt;span class='lineno'&gt; 6&lt;/span&gt; 		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='no'&gt;t&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;&amp;gt;&lt;/span&gt; &lt;span class='nb'&gt;count&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-&lt;span class='lineno'&gt; 7&lt;/span&gt; 		   &lt;span class='nb'&gt;max&lt;/span&gt;
-&lt;span class='lineno'&gt; 8&lt;/span&gt; 		   &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;fact1-google&lt;/span&gt; &lt;span class='nv'&gt;mid&lt;/span&gt; &lt;span class='nb'&gt;max&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;+&lt;/span&gt; &lt;span class='nb'&gt;min&lt;/span&gt; &lt;span class='nv'&gt;mid&lt;/span&gt; &lt;span class='nb'&gt;max&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;1+&lt;/span&gt; &lt;span class='nb'&gt;count&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;&lt;span class='p'&gt;)))))&lt;/span&gt;
-&lt;span class='lineno'&gt; 9&lt;/span&gt; 
-&lt;span class='lineno'&gt;10&lt;/span&gt; 	&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;fact-google&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;n&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-&lt;span class='lineno'&gt;11&lt;/span&gt; 	  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;fact1-google&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt; &lt;span class='nv'&gt;n&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='cl'&gt;	&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;fact1-google&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;min&lt;/span&gt; &lt;span class='nv'&gt;mid&lt;/span&gt; &lt;span class='nb'&gt;max&lt;/span&gt; &lt;span class='nb'&gt;count&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+	  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;case&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;
+		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+		&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='no'&gt;t&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;&amp;gt;&lt;/span&gt; &lt;span class='nb'&gt;count&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+		   &lt;span class='nb'&gt;max&lt;/span&gt;
+		   &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;fact1-google&lt;/span&gt; &lt;span class='nv'&gt;mid&lt;/span&gt; &lt;span class='nb'&gt;max&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;+&lt;/span&gt; &lt;span class='nb'&gt;min&lt;/span&gt; &lt;span class='nv'&gt;mid&lt;/span&gt; &lt;span class='nb'&gt;max&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;1+&lt;/span&gt; &lt;span class='nb'&gt;count&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='nv'&gt;max-count&lt;/span&gt;&lt;span class='p'&gt;)))))&lt;/span&gt;
+
+	&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;defun&lt;/span&gt; &lt;span class='nv'&gt;fact-google&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;n&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+	  &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nv'&gt;fact1-google&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt; &lt;span class='nv'&gt;n&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;学习SICP之前的解题1&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='lineno'&gt; 1&lt;/span&gt; &lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Test&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
-&lt;span class='lineno'&gt; 2&lt;/span&gt; 	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;&lt;span class='c1'&gt;//T(n-1)  max&lt;/span&gt;
-&lt;span class='lineno'&gt; 3&lt;/span&gt; 	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;&lt;span class='c1'&gt;//T(n-2)  mid&lt;/span&gt;
-&lt;span class='lineno'&gt; 4&lt;/span&gt; 	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;&lt;span class='c1'&gt;//T(n-3)  last&lt;/span&gt;
-&lt;span class='lineno'&gt; 5&lt;/span&gt; 	
-&lt;span class='lineno'&gt; 6&lt;/span&gt; 	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='nf'&gt;fn&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
-&lt;span class='lineno'&gt; 7&lt;/span&gt; 		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
-&lt;span class='lineno'&gt; 8&lt;/span&gt; 			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='o'&gt;((&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;==&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;||&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;==&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;?&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-&lt;span class='lineno'&gt; 9&lt;/span&gt; 		&lt;span class='o'&gt;}&lt;/span&gt;&lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='o'&gt;{&lt;/span&gt;
-&lt;span class='lineno'&gt;10&lt;/span&gt; 			&lt;span class='n'&gt;init&lt;/span&gt;&lt;span class='o'&gt;();&lt;/span&gt;
-&lt;span class='lineno'&gt;11&lt;/span&gt; 			&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;times&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;Math&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;rint&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-&lt;span class='lineno'&gt;12&lt;/span&gt; 				
-&lt;span class='lineno'&gt;13&lt;/span&gt; 			&lt;span class='k'&gt;while&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='n'&gt;times&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
-&lt;span class='lineno'&gt;14&lt;/span&gt; 				&lt;span class='c1'&gt;//T(n-3) = T(n-4) + T(n-5) + T(n-6)&lt;/span&gt;
-&lt;span class='lineno'&gt;15&lt;/span&gt; 				&lt;span class='n'&gt;iLast&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;16&lt;/span&gt; 				&lt;span class='c1'&gt;//T(n-2) = T(n-4) + T(n-5) + T(n-3)&lt;/span&gt;
-&lt;span class='lineno'&gt;17&lt;/span&gt; 				&lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;18&lt;/span&gt; 				&lt;span class='c1'&gt;//T(n-1) = T(n-4) + T(n-2) + T(n-3)&lt;/span&gt;
-&lt;span class='lineno'&gt;19&lt;/span&gt; 				&lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;20&lt;/span&gt; 				&lt;span class='n'&gt;times&lt;/span&gt;&lt;span class='o'&gt;--;&lt;/span&gt;
-&lt;span class='lineno'&gt;21&lt;/span&gt; 			&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;span class='lineno'&gt;22&lt;/span&gt; 				
-&lt;span class='lineno'&gt;23&lt;/span&gt; 			&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;24&lt;/span&gt; 			&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;%&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;25&lt;/span&gt; 			&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;%&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;26&lt;/span&gt; 			&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;%&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;27&lt;/span&gt; 			
-&lt;span class='lineno'&gt;28&lt;/span&gt; 			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;29&lt;/span&gt; 		&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;span class='lineno'&gt;30&lt;/span&gt; 	&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;span class='lineno'&gt;31&lt;/span&gt;         
-&lt;span class='lineno'&gt;32&lt;/span&gt; 	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;init&lt;/span&gt;&lt;span class='o'&gt;(){&lt;/span&gt;
-&lt;span class='lineno'&gt;33&lt;/span&gt; 		&lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;34&lt;/span&gt; 		&lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;35&lt;/span&gt; 		&lt;span class='n'&gt;iLast&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;36&lt;/span&gt; 	&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;span class='lineno'&gt;37&lt;/span&gt; 
-&lt;span class='lineno'&gt;38&lt;/span&gt; &lt;span class='o'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Test&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;&lt;span class='c1'&gt;//T(n-1)  max&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;&lt;span class='c1'&gt;//T(n-2)  mid&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;&lt;span class='c1'&gt;//T(n-3)  last&lt;/span&gt;
+	
+	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='nf'&gt;fn&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
+		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
+			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='o'&gt;((&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;==&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;||&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;==&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;?&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+		&lt;span class='o'&gt;}&lt;/span&gt;&lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='o'&gt;{&lt;/span&gt;
+			&lt;span class='n'&gt;init&lt;/span&gt;&lt;span class='o'&gt;();&lt;/span&gt;
+			&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;times&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;Math&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;rint&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+				
+			&lt;span class='k'&gt;while&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='n'&gt;times&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
+				&lt;span class='c1'&gt;//T(n-3) = T(n-4) + T(n-5) + T(n-6)&lt;/span&gt;
+				&lt;span class='n'&gt;iLast&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+				&lt;span class='c1'&gt;//T(n-2) = T(n-4) + T(n-5) + T(n-3)&lt;/span&gt;
+				&lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+				&lt;span class='c1'&gt;//T(n-1) = T(n-4) + T(n-2) + T(n-3)&lt;/span&gt;
+				&lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+				&lt;span class='n'&gt;times&lt;/span&gt;&lt;span class='o'&gt;--;&lt;/span&gt;
+			&lt;span class='o'&gt;}&lt;/span&gt;
+				
+			&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+			&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;%&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iLast&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+			&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;%&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMid&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+			&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt; &lt;span class='o'&gt;%&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;iMax&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+			
+			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;result&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='o'&gt;}&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+        
+	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;init&lt;/span&gt;&lt;span class='o'&gt;(){&lt;/span&gt;
+		&lt;span class='n'&gt;iMax&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='n'&gt;iMid&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='n'&gt;iLast&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+
+&lt;span class='o'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;学习SICP之后&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='lineno'&gt; 1&lt;/span&gt; 	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='nf'&gt;fact_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
-&lt;span class='lineno'&gt; 2&lt;/span&gt; 			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nf'&gt;fact1_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-&lt;span class='lineno'&gt; 3&lt;/span&gt; 	&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;span class='lineno'&gt; 4&lt;/span&gt; 	
-&lt;span class='lineno'&gt; 5&lt;/span&gt; 	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='nf'&gt;fact1_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;min&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;mid&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;
-&lt;span class='lineno'&gt; 6&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;count&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt;
-&lt;span class='lineno'&gt; 7&lt;/span&gt; 	&lt;span class='o'&gt;{&lt;/span&gt;
-&lt;span class='lineno'&gt; 8&lt;/span&gt; 		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt; &lt;span class='o'&gt;||&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
-&lt;span class='lineno'&gt; 9&lt;/span&gt; 			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;10&lt;/span&gt; 		&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;span class='lineno'&gt;11&lt;/span&gt; 		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
-&lt;span class='lineno'&gt;12&lt;/span&gt; 			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;13&lt;/span&gt; 		&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;span class='lineno'&gt;14&lt;/span&gt; 			
-&lt;span class='lineno'&gt;15&lt;/span&gt; 		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;count&lt;/span&gt; &lt;span class='o'&gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
-&lt;span class='lineno'&gt;16&lt;/span&gt; 		&lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nf'&gt;fact1_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;mid&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;min&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='n'&gt;mid&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;	&lt;span class='o'&gt;++&lt;/span&gt;&lt;span class='n'&gt;count&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-&lt;span class='lineno'&gt;17&lt;/span&gt; 	&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content>
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='nf'&gt;fact_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
+			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nf'&gt;fact1_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+	
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='nf'&gt;fact1_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;min&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;mid&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;
+&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;count&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt;
+	&lt;span class='o'&gt;{&lt;/span&gt;
+		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt; &lt;span class='o'&gt;||&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
+			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='o'&gt;}&lt;/span&gt;
+		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;){&lt;/span&gt;
+			&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='o'&gt;}&lt;/span&gt;
+			
+		&lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;count&lt;/span&gt; &lt;span class='o'&gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nf'&gt;fact1_google&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;mid&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;min&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='n'&gt;mid&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='n'&gt;max&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;	&lt;span class='o'&gt;++&lt;/span&gt;&lt;span class='n'&gt;count&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;maxCount&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
  </entry>
  
  
